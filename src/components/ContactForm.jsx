@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../lib/supabase';
+import { submitToMailchimp } from '../lib/mailchimp';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -29,26 +29,10 @@ const ContactForm = () => {
     setSubmitStatus('');
 
     try {
-      // Insertar datos en Supabase
-      const { data, error } = await supabase
-        .from('form_submissions')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            company: formData.company || null,
-            phone: formData.phone || null,
-            project_type: formData.projectType,
-            description: formData.description,
-            timeline: formData.timeline
-          }
-        ]);
-
-      if (error) {
-        console.error('Error al enviar formulario:', error);
-        setSubmitStatus('error');
-      } else {
-        console.log('Formulario enviado exitosamente:', data);
+      // Enviar datos a Mailchimp
+      const result = await submitToMailchimp(formData);
+      
+      if (result.success) {
         setSubmitStatus('success');
         
         // Limpiar formulario
@@ -61,6 +45,9 @@ const ContactForm = () => {
           description: '',
           timeline: '24h'
         });
+      } else {
+        setSubmitStatus('error');
+        console.error('Mailchimp error:', result.error);
       }
     } catch (error) {
       console.error('Error inesperado:', error);
@@ -125,7 +112,24 @@ const ContactForm = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-green-800">¡Desafío Aceptado!</h3>
-                        <p className="text-green-600">Te contactaré en menos de 2 horas para comenzar tu proyecto.</p>
+                        <p className="text-green-600">Registro exitoso en Mailchimp. Te contactaré en menos de 2 horas para comenzar tu proyecto.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+
+                {submitStatus === 'error' && (
+                  <div className="mb-8 p-6 bg-red-50 border border-red-200 rounded-2xl">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-red-800">Error al enviar</h3>
+                        <p className="text-red-600">Hubo un problema al conectar con Mailchimp. Por favor, intenta nuevamente.</p>
                       </div>
                     </div>
                   </div>
