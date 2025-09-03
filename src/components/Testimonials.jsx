@@ -39,28 +39,31 @@ const Testimonials = () => {
       title: "Founder Pro v2.0",
       category: "SaaS Platform",
       tech: "Next.js + Tailwind",
-      image: "🚀",
+      image: "https://founder-pro-v-2-0.vercel.app",
       link: "https://founder-pro-v-2-0.vercel.app",
       github: "https://github.com/mosaikolabs/founder_pro-v.2.0/tree/main",
-      description: "Plataforma SaaS completa para founders con dashboard avanzado"
+      description: "Plataforma SaaS completa para founders con dashboard avanzado",
+      bgGradient: "from-purple-500 to-indigo-600"
     },
     {
       title: "SEO Landing SaaS",
       category: "Marketing",
       tech: "React + SEO Tools",
-      image: "📈",
+      image: "https://seo-landing-saas-v01.vercel.app",
       link: "https://seo-landing-saas-v01.vercel.app",
       github: "https://github.com/mosaikolabs/seo-landing-saas.v01",
-      description: "Landing optimizada para SaaS de herramientas SEO"
+      description: "Landing optimizada para SaaS de herramientas SEO",
+      bgGradient: "from-yellow-500 to-orange-600"
     },
     {
       title: "Sophie Referrals",
-      category: "Referral System",
+      category: "Referral System", 
       tech: "React + Referral Logic",
-      image: "🤝",
+      image: "https://sophie-referrals-landing.vercel.app",
       link: "https://sophie-referrals-landing.vercel.app",
       github: "https://github.com/mosaikolabs/sophie-referrals-landing",
-      description: "Sistema de referidos con landing de alta conversión"
+      description: "Sistema de referidos con landing de alta conversión",
+      bgGradient: "from-pink-500 to-rose-600"
     }
   ];
 
@@ -169,9 +172,18 @@ const Testimonials = () => {
                 className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 animate-fadeInUp"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Image Placeholder */}
-                <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-6xl">
-                  {item.image}
+                {/* Live Preview */}
+                <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden group">
+                  <iframe 
+                    src={item.image} 
+                    className="w-full h-full scale-50 origin-top-left transform pointer-events-none"
+                    style={{ width: '200%', height: '200%' }}
+                    title={`Preview of ${item.title}`}
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.bgGradient} opacity-20 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                  <div className="absolute top-2 right-2 bg-white rounded-full px-2 py-1 text-xs font-semibold text-gray-700 shadow-lg">
+                    LIVE
+                  </div>
                 </div>
 
                 {/* Content */}
