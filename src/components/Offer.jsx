@@ -86,8 +86,8 @@ const Offer = () => {
           </h2>
           
           <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-            Un paquete completo de desarrollo web profesional, entregado en tiempo récord 
-            y con una garantía que elimina todo riesgo de tu parte.
+            Landing page desarrollada con las últimas tecnologías de Silicon Valley, 
+            completamente gratis. Solo pagas hosting VPS si decides publicarla.
           </p>
         </div>
 
@@ -181,8 +181,8 @@ const Offer = () => {
                   $0
                 </div>
                 <p className="text-xl text-gray-300">
-                  Solo donación voluntaria{' '}
-                  <span className="text-accent-400 font-semibold">si cumplo</span>
+                  Landing page completamente gratis.{' '}
+                  <span className="text-accent-400 font-semibold">Solo pagas el hosting VPS si decides publicarla.</span>
                 </p>
               </div>
 

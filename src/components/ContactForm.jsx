@@ -5,11 +5,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    phone: '',
-    projectType: '',
-    description: '',
-    timeline: '24h'
+    phone: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,11 +35,7 @@ const ContactForm = () => {
         setFormData({
           name: '',
           email: '',
-          company: '',
-          phone: '',
-          projectType: '',
-          description: '',
-          timeline: '24h'
+          phone: ''
         });
       } else {
         setSubmitStatus('error');
@@ -137,7 +129,7 @@ const ContactForm = () => {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Personal Info */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
                         Nombre completo *
@@ -169,27 +161,10 @@ const ContactForm = () => {
                         placeholder="tu@email.com"
                       />
                     </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="company" className="block text-sm font-bold text-gray-900 mb-2">
-                        Empresa/Negocio
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
-                        placeholder="Nombre de tu empresa"
-                      />
-                    </div>
 
                     <div>
                       <label htmlFor="phone" className="block text-sm font-bold text-gray-900 mb-2">
-                        Teléfono (WhatsApp)
+                        Teléfono *
                       </label>
                       <input
                         type="tel"
@@ -197,85 +172,14 @@ const ContactForm = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
+                        required
                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
                         placeholder="+1 234 567 890"
                       />
                     </div>
                   </div>
 
-                  {/* Project Details */}
-                  <div>
-                    <label htmlFor="projectType" className="block text-sm font-bold text-gray-900 mb-2">
-                      Tipo de proyecto *
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
-                    >
-                      <option value="">Selecciona el tipo de landing</option>
-                      {projectTypes.map((type, index) => (
-                        <option key={index} value={type}>{type}</option>
-                      ))}
-                    </select>
-                  </div>
 
-                  <div>
-                    <label htmlFor="description" className="block text-sm font-bold text-gray-900 mb-2">
-                      Describe tu proyecto *
-                    </label>
-                    <textarea
-                      id="description"
-                      name="description"
-                      value={formData.description}
-                      onChange={handleInputChange}
-                      required
-                      rows="4"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
-                      placeholder="Cuéntame sobre tu negocio, qué quieres lograr con tu landing page, tu audiencia objetivo, y cualquier detalle específico que consideres importante..."
-                    ></textarea>
-                  </div>
-
-                  {/* Timeline */}
-                  <div>
-                    <label htmlFor="timeline" className="block text-sm font-bold text-gray-900 mb-2">
-                      Plazo esperado
-                    </label>
-                    <select
-                      id="timeline"
-                      name="timeline"
-                      value={formData.timeline}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
-                    >
-                      <option value="24h">24 horas (Desafío Web 24h)</option>
-                      <option value="48h">48 horas (con revisiones)</option>
-                      <option value="flexible">Flexible</option>
-                    </select>
-                  </div>
-
-                  {/* Terms */}
-                  <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-6">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <div className="text-sm text-gray-700 leading-relaxed">
-                        <p className="font-semibold mb-2">Al enviar este formulario acepto:</p>
-                        <ul className="space-y-1 text-sm">
-                          <li>• Que el proyecto se desarrolle bajo la metodología "Desafío Web 24h"</li>
-                          <li>• Que no hay costo inicial y solo haré una donación voluntaria si se cumple el plazo</li>
-                          <li>• Que recibiré el código completo en GitHub sin importar el resultado</li>
-                          <li>• Proporcionar contenidos básicos (textos, imágenes, logo) en máximo 24h</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
 
                   {/* Submit Button */}
                   <button

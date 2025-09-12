@@ -23,12 +23,17 @@ const Solution = () => {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-              La Única Plataforma
-              <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent"> Todo-en-Uno</span>
+              La Única Plataforma Todo-en-Uno
+              <br/>
+              <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">Que te Regala tu Landing en 24h</span>
             </h2>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Combinamos un desarrollo ultra-rápido con un hosting que escala contigo y te damos las herramientas para que gestiones tu negocio sin depender de nadie.
+              Te entregamos una web profesional, rápida y funcional...
+              <br/><br/>
+              Gratis. Sin condiciones.
+              <br/>
+              Luego tú decides si quieres activarla online con nosotros.
             </p>
 
             <div className="space-y-5">

@@ -6,8 +6,8 @@ const Problem = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "Tu competencia ya está online mientras tú sigues esperando",
-      description: "Desarrolladores que prometen 2 semanas y entregan en 2 meses."
+      title: "Mientras tú esperas… ellos ya venden.",
+      description: "Cada día sin actuar es una venta menos que no vuelve."
     },
     {
       icon: (
@@ -53,10 +53,14 @@ const Problem = () => {
               Familiar?
             </span>
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            Si tu negocio sufre por alguna de estas razones, estás en el lugar correcto. 
-            Existe una <span className="font-semibold text-primary-600">solución más inteligente</span>.
-          </p>
+          <div className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="mb-4">
+              Cada minuto que esperas es un cliente que se va.
+            </p>
+            <p>
+              Pero eso está a punto de cambiar...
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">

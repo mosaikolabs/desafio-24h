@@ -29,18 +29,19 @@ const Hero = () => {
           {/* Main Headline */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-              De Cero a Online en <span className="text-accent-500">24 Horas</span>
+              🔥 De Cero a Online en <span className="text-accent-500">24h... Gratis.</span>
               <br />
-              <span className="text-4xl md:text-5xl lg:text-6xl">Con el Único Hosting que Crece Contigo</span>
+              <span className="text-4xl md:text-5xl lg:text-6xl">Y solo pagas si decides ponerla online con nosotros.</span>
             </h1>
           </div>
 
           {/* Sub-headline */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
-              No más esperas eternas de desarrolladores.<br/>
-              No más hostings que te limitan.<br/>
-              Solo resultados profesionales desde el día uno.
+              Sin esperas. Sin programar. Sin pagos forzados.<br/>
+              <br/>
+              Pide tu landing hoy, recíbela mañana.<br/>
+              100% gratis. Y tú decides si quieres publicarla.
             </p>
           </div>
 
@@ -50,19 +51,16 @@ const Hero = () => {
               onClick={scrollToForm}
               className="group relative inline-flex items-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-primary-600 to-accent-600 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
             >
-              <span className="relative z-10">Tu Landing Lista Mañana + Hosting desde $20/mes</span>
+              <span className="relative z-10">"Quiero Mi Landing Gratis"</span>
               <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
           </div>
 
           {/* Badges */}
-          <div className={`transition-all duration-1000 delay-700 mt-8 flex justify-center items-center space-x-6 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="bg-green-500/20 text-green-300 text-sm font-semibold py-2 px-4 rounded-full shadow-md">
-              Entrega garantizada en 24h
-            </div>
-            <div className="bg-blue-500/20 text-blue-300 text-sm font-semibold py-2 px-4 rounded-full shadow-md">
-              15+ proyectos completados
-            </div>
+          <div className={`transition-all duration-1000 delay-700 mt-6 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-lg text-gray-300">
+              Te regalo una landing lista en 24h. Tú decides si quieres ponerla online con nosotros o no.
+            </p>
           </div>
 
           {/* Visual Mockup */}
